@@ -21,7 +21,7 @@ public class TerritoryController implements MouseListener, MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         if (_territory.getCell().getScaledPolygon().contains(e.getPoint())) {
-            _territorySprite.setColor(_territorySprite.getRandomColor());
+        
         }
     }
 

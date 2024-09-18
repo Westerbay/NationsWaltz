@@ -1,12 +1,14 @@
 package nationswaltz.map;
 
 import java.awt.*;
+import java.util.*;
 
 public class Cell {
 
     private final Polygon _polygon;
     private Polygon _scaledPolygon;
     private final Point _site;
+    private final HashSet<Point> _neighboorSite = new HashSet<>();
 
     public Cell(Point site, Polygon polygon) {
         _site = site;
@@ -24,6 +26,10 @@ public class Cell {
 
     public Polygon getScaledPolygon() {
         return _scaledPolygon;
+    }
+    
+    public HashSet<Point> getNeighboorSite() {
+    	return _neighboorSite;
     }
 
     public void scalePolygon(double scale) {

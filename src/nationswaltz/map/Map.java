@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Map extends Voronoi {
-
+	
+	private static final Color WILDERNESS_COLOR = Color.green;
     private final Nation _wilderness = new Nation();
     private final Random _random = new Random();
     private final List<Territory> _territories = new ArrayList<>();
@@ -19,6 +20,7 @@ public class Map extends Voronoi {
 
     public Map(int nbCells, int width, int height) {
         super(nbCells, width, height);
+        _wilderness.setColor(WILDERNESS_COLOR);
         generateMap(_random.nextInt(2, 5), 0.05);
     }
 

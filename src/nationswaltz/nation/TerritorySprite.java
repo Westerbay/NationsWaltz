@@ -1,8 +1,6 @@
 package nationswaltz.nation;
 
 import nationswaltz.map.Cell;
-import nationswaltz.map.Map;
-import nationswaltz.map.MapSurface;
 import wgame.sprite.Sprite;
 
 import java.awt.*;	
@@ -13,11 +11,9 @@ public class TerritorySprite extends Sprite {
 	protected static final Color BORDER_COLOR = Color.black;
 	protected final Cell _cell;
     private final Territory _territory;
-    private final MapSurface _mapSurface;
 
-    public TerritorySprite(Territory territory, Map map, MapSurface mapSurface) {
-        super(0, 0, 0, 0);
-        _mapSurface = mapSurface;
+    public TerritorySprite(Territory territory) {
+        super();
         _cell = territory.getCell();
         _territory = territory;
     }

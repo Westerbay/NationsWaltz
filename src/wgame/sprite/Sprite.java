@@ -35,6 +35,10 @@ public abstract class Sprite extends Rectangle {
             setBounds(x, y, 0, 0);
         }
     }
+    
+    public Sprite() {
+    	this(0, 0, 0, 0);
+    }
 
     private BufferedImage createImage(String path) {
         try {

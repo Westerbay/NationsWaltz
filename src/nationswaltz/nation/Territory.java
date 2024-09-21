@@ -1,16 +1,22 @@
 package nationswaltz.nation;
 
-import nationswaltz.map.Cell;
+import nationswaltz.map.*;
 
 public class Territory {
 
     private Nation _nation;
     private final Cell _cell;
+    private final Map _map;
     private int _soldier;
     private int _income;
 
-    public Territory(Cell cell) {
+    public Territory(Cell cell, Map map) {
         _cell = cell;
+        _map = map;
+    }
+    
+    public Map getMap() {
+    	return _map;
     }
 
     public Cell getCell() {
@@ -69,3 +75,4 @@ public class Territory {
     }
 
 }
+

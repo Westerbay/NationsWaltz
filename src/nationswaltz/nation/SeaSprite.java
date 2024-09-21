@@ -10,8 +10,8 @@ public class SeaSprite extends TerritorySprite {
 
     private static final Color _color = new Color(0, 0, 255);
 
-    public SeaSprite(Territory territory, Map map, MapSurface mapSurface) {
-        super(territory, map, mapSurface);
+    public SeaSprite(Territory territory) {
+        super(territory);
     }
     
     @Override

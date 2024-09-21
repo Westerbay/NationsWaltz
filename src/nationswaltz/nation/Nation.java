@@ -6,12 +6,12 @@ import java.awt.Color;
 
 public class Nation extends HashSet<Territory> {
 
-    private Capital _capital;
+    private Territory _capital;
     private int _money;
     private Color _color;
 	private final Random _random = new Random();
 	
-    public Nation(Capital capital, int money) {
+    public Nation(Territory capital, int money) {
         _capital = capital;
         _money = money;
         _color = generateColor();
@@ -21,12 +21,13 @@ public class Nation extends HashSet<Territory> {
         this(null, 0);
     }
 
-    public Capital getCapital() {
+    public Territory getCapital() {
         return _capital;
     }
 
-    public void setCapital(Capital capital) {
+    public void setCapital(Territory capital) {
         _capital = capital;
+        capital.setNation(this);
     }
 
     public int getMoney() {

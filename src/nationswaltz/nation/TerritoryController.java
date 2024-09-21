@@ -21,7 +21,7 @@ public class TerritoryController implements MouseListener, MouseMotionListener {
     @Override
     public void mousePressed(MouseEvent e) {
         if (_territory.getCell().getScaledPolygon().contains(e.getPoint())) {
-        
+        	_territory.getMap().setSelectedNation(_territory.getNation());
         }
     }
 
@@ -50,3 +50,4 @@ public class TerritoryController implements MouseListener, MouseMotionListener {
     }
 
 }
+

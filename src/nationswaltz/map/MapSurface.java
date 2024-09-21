@@ -22,10 +22,10 @@ public class MapSurface extends Surface {
         _map = map;
         for (Territory territory: _map.getTerritories()) {
             if (territory instanceof Sea) {
-                addSprite(new SeaSprite(territory, map, this));
+                addSprite(new SeaSprite(territory));
             }
             else {
-                addSprite(new TerritorySprite(territory, map, this));
+                addSprite(new TerritorySprite(territory));
             }
         }
         MapController controller = new MapController(this);

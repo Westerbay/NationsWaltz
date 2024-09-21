@@ -10,9 +10,8 @@ public class GameScreen extends Screen {
 
     public GameScreen(Game game) {
         super(TITLE);
-        GamePanel gamePanel = new GamePanel(game, 800, 800);
+        GamePanel gamePanel = new GamePanel(game, 1280, 720);
         addSurface(gamePanel);
-        setBackground(Color.black);
     }
 
 }

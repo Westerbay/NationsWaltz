@@ -4,10 +4,9 @@ import nationswaltz.nation.Nation;
 import nationswaltz.nation.Sea;
 import nationswaltz.nation.Territory;
 
-import java.awt.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.util.*;
 
 public class Map extends Voronoi {
 	
@@ -17,6 +16,7 @@ public class Map extends Voronoi {
     private final List<Territory> _territories = new ArrayList<>();
     private final List<Territory> _lands = new ArrayList<>();
     private final List<Territory> _seas = new ArrayList<>();
+    private Nation _selectedNation = null;
 
     public Map(int nbCells, int width, int height) {
         super(nbCells, width, height);
@@ -29,12 +29,12 @@ public class Map extends Voronoi {
         for (Cell cell : getCells()) {
             Territory territory;
             if (cellsOnContinent(continents, cell) || _random.nextDouble() < probabilityIsle) {
-                territory = new Territory(cell);
+                territory = new Territory(cell, this);
                 territory.setNation(_wilderness);
                 _lands.add(territory);
             }
             else {
-                territory = new Sea(cell);
+                territory = new Sea(cell, this);
                 _seas.add(territory);
             }
             _territories.add(territory);
@@ -78,6 +78,16 @@ public class Map extends Voronoi {
         }
         return false;
     }
+    
+    public Nation getSelectedNation() {
+    	return _selectedNation;
+    }
+    
+    public void setSelectedNation(Nation nation) {
+		if (nation != _wilderness && nation != null) {
+			_selectedNation = nation;
+		}
+    }
 
     public List<Territory> getTerritories() {
         return _territories;
@@ -85,6 +95,18 @@ public class Map extends Voronoi {
 
     public Nation getWilderness() {
         return _wilderness;
+    }
+    
+    public void setCapitals(List<Nation> nations) {
+    	Set<Integer> choosen = new HashSet<>();
+    	for (Nation nation: nations) {
+    		int index;
+    		do {
+    			index = _random.nextInt(_lands.size());
+    		} while (choosen.contains(index));
+    		choosen.add(index);
+    		nation.setCapital(_lands.get(index));
+    	}
     }
 
 }

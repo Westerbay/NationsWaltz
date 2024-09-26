@@ -3,6 +3,9 @@ package nationswaltz.map;
 import java.awt.*;
 import java.util.*;
 
+/**
+ * @author Wester
+ */
 public class Cell {
 
     private final Polygon _polygon;

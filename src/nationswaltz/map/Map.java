@@ -1,13 +1,15 @@
 package nationswaltz.map;
 
-import nationswaltz.nation.Nation;
-import nationswaltz.nation.Sea;
-import nationswaltz.nation.Territory;
-
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.*;
 
+import nationswaltz.nation.*;
+import nationswaltz.territory.*;
+
+/**
+ * @author Wester
+ */
 public class Map extends Voronoi {
 	
 	private static final Color WILDERNESS_COLOR = Color.green;
@@ -29,7 +31,7 @@ public class Map extends Voronoi {
         for (Cell cell : getCells()) {
             Territory territory;
             if (cellsOnContinent(continents, cell) || _random.nextDouble() < probabilityIsle) {
-                territory = new Territory(cell, this);
+                territory = new Land(cell, this);
                 territory.setNation(_wilderness);
                 _lands.add(territory);
             }

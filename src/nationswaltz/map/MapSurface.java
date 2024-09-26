@@ -1,15 +1,16 @@
 package nationswaltz.map;
 
-import nationswaltz.nation.Sea;
-import nationswaltz.nation.Territory;
-import nationswaltz.nation.SeaSprite;
-import nationswaltz.nation.TerritorySprite;
 import wgame.surface.Surface;
 
 import java.awt.Rectangle;
 import java.awt.Color;
 
+import nationswaltz.nation.*;
+import nationswaltz.territory.*;
 
+/**
+ * @author Wester
+ */
 public class MapSurface extends Surface {
 
     private final Map _map;
@@ -21,12 +22,7 @@ public class MapSurface extends Surface {
         _parent = parent;
         _map = map;
         for (Territory territory: _map.getTerritories()) {
-            if (territory instanceof Sea) {
-                addSprite(new SeaSprite(territory));
-            }
-            else {
-                addSprite(new TerritorySprite(territory));
-            }
+        	addSprite(new TerritorySprite(territory));
         }
         MapController controller = new MapController(this);
         addMouseMotionListener(controller);

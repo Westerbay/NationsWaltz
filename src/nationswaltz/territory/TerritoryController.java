@@ -1,9 +1,13 @@
-package nationswaltz.nation;
+package nationswaltz.territory;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+
+/**
+ * @author Wester
+ */
 public class TerritoryController implements MouseListener, MouseMotionListener {
 
     private final Territory _territory;

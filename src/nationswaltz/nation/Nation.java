@@ -4,6 +4,12 @@ import java.util.HashSet;
 import java.util.Random;
 import java.awt.Color;
 
+import nationswaltz.map.*;
+import nationswaltz.territory.*;
+
+/**
+ * @author Wester
+ */
 public class Nation extends HashSet<Territory> {
 
     private Territory _capital;

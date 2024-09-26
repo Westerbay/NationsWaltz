@@ -1,4 +1,4 @@
-package nationswaltz.nation;
+package nationswaltz.territory;
 
 import nationswaltz.map.Cell;
 import wgame.sprite.Sprite;
@@ -6,14 +6,19 @@ import wgame.sprite.Sprite;
 import java.awt.*;	
 import java.util.Random;
 
+
+/**
+ * @author Wester
+ */
 public class TerritorySprite extends Sprite {
 	
-	protected static final Color BORDER_COLOR = Color.black;
-	protected final Cell _cell;
+	private static final Color SEA_COLOR = Color.blue;
+	private static final Color BORDER_COLOR = Color.black;
+	
+	private final Cell _cell;
     private final Territory _territory;
 
     public TerritorySprite(Territory territory) {
-        super();
         _cell = territory.getCell();
         _territory = territory;
     }
@@ -31,7 +36,11 @@ public class TerritorySprite extends Sprite {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(_territory.getNation().getColor());
+        if (_territory.isLand()) {
+        	g.setColor(_territory.getNation().getColor());
+        } else {
+        	g.setColor(SEA_COLOR);
+        }
         g.fillPolygon(_cell.getScaledPolygon());
         g.setColor(BORDER_COLOR);
         g.drawPolygon(_cell.getScaledPolygon());

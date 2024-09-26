@@ -1,8 +1,13 @@
-package nationswaltz.nation;
+package nationswaltz.territory;
 
 import nationswaltz.map.*;
+import nationswaltz.nation.*;
 
-public class Territory {
+
+/**
+ * @author Wester
+ */
+public abstract class Territory {
 
     private Nation _nation;
     private final Cell _cell;
@@ -70,9 +75,7 @@ public class Territory {
         return false;
     }
 
-    public boolean isLand() {
-        return true;
-    }
+    public abstract boolean isLand();
 
 }
 

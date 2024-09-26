@@ -4,6 +4,10 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.*;
 
+
+/**
+ * @author Wester
+ */
 public class MapController implements MouseListener, MouseMotionListener, KeyListener, MouseWheelListener {
 
     private final MapSurface _mapView;

@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * @author Wester
+ */
 public class Voronoi {
 
     private final Set<Cell> _cells = new HashSet<>();
